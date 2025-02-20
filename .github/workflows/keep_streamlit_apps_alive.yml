@@ -1,0 +1,21 @@
+name: Keep Streamlit Apps Alive
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  ping-apps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send request to Quantum Tech Papers app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://quantum-tech-papers.streamlit.app/
+
+      - name: Send request to Quantum Random Number Generator app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://quantum-random-number-generator.streamlit.app/
+
+      - name: Send request to Quantum Database Architecture EIT app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://quantum-database-architecture-eit.streamlit.app/
