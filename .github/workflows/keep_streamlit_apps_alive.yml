@@ -19,3 +19,7 @@ jobs:
 
       - name: Send request to Quantum Database Architecture EIT app
         run: curl -s -o /dev/null -w "%{http_code}\n" https://quantum-database-architecture-eit.streamlit.app/
+        
+      - name: Send request to PEC 2 Plataforma y Distribución app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://plataformas-de-publicacion-y-distribucion-rraigadag.streamlit.app/
+      
